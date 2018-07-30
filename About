@@ -1,0 +1,7 @@
+Essentially, therer are 3 levels of access
+
+Level1: Any user that has logged in can view any part of the website
+Level2: Users that can upload content through a separate html page.
+Level3: Superuser
+
+Additionaly, only  users that have logged in can access the News Feed and the articles.

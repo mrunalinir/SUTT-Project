@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<br/>
+<br/>
+<h1 align='center'> News Feed </h1>
+
+<br/>
+<br/>
+{% for item in news.all %}
+
+<div onclick="window.location='{% url 'detail' product.id %}';" style="cursor: pointer;">
+    <h1>{{ newz.title }}</h1>
+    <p>{{ newz.summary }}</p>
+</div>
+
+<br/>
+<br/>
+item is getting listed
+{% endfor %}
+
+{% endblock %}
