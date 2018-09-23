@@ -6,11 +6,11 @@
 <br/>
 
 <body style='text-align:center;'>
-    <h1>{{ news.title }}</h1>
+    <h1>{{ newzz.title }}</h1>
     <img src="{{ news.image.url }}" class="img-fluid" />
-    <h4> Posted by {{ news.source.username }}</h4>
-    <h4> {{ news.pub_date_pretty }}</h4>
-    <p>{{ news.body }}</p>
+    <h4> Posted by {{ newzz.source.username }}</h4>
+    <h4> {{ newzz.pub_date_pretty }}</h4>
+    <p>{{ newzz.body }}</p>
 
 </body>
 {% endblock %}

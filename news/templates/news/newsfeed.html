@@ -8,16 +8,16 @@
 
 <br/>
 <br/>
-{% for item in news.all %}
+{% for news in news.all %}
 
-<div onclick="window.location='{% url 'detail' product.id %}';" style="cursor: pointer;">
-    <h1>{{ newz.title }}</h1>
-    <p>{{ newz.summary }}</p>
+<div onclick="window.location='{% url 'detail' news.id %}';" style="cursor: pointer;">
+    <h1>{{ news.title }}</h1>
+    <p>{{ news.summary }}</p>
 </div>
 
 <br/>
 <br/>
-item is getting listed
+
 {% endfor %}
 
 {% endblock %}

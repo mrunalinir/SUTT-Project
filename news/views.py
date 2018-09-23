@@ -11,7 +11,7 @@ def home(request):
 @login_required
 def newsfeed(request):
     news = News.objects
-    return render(request,'news/newsfeed.html',{'newz':news})
+    return render(request,'news/newsfeed.html',{'news':news})
 
 
 @login_required (login_url="/accounts/signup")
@@ -34,7 +34,7 @@ def create(request):
 @login_required
 def detail(request, news_id):
     news = get_object_or_404(News, pk=news_id)
-    return render(request, 'news/detail.html',{'news':news})
+    return render(request, 'news/detail.html',{'newzz':news})
 
 
 
