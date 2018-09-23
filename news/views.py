@@ -17,11 +17,13 @@ def newsfeed(request):
 @login_required (login_url="/accounts/signup")
 def create(request):
     if request.method == 'POST':
-        if request.POST['title'] and request.POST['body'] and request.FILES['image']:
+        if request.POST['title'] and request.POST['body']:
+            if request.FILES['image']:
+	            news.image = request.FILES['image']
             news = News()
             news.title = request.POST['title']
             news.body = request.POST['body']
-            news.image = request.FILES['image']
+            
             news.pub_date = timezone.datetime.now()
             news.source = request.user
             news.save()

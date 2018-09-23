@@ -2,14 +2,32 @@
 
 {% block content %}
 
+<style>
+.pix
+{
+	height: 25%;
+}
+.disp
+{
+	display: block;
+}
+
+</style>
 <br/>
 <br/>
 
-<body style='text-align:center;'>
+<body>
     <h1>{{ newzz.title }}</h1>
-    <img src="{{ news.image.url }}" class="img-fluid" />
-    <h4> Posted by {{ newzz.source.username }}</h4>
-    <h4> {{ newzz.pub_date_pretty }}</h4>
+	{% if newzz.image %}
+	<div class='disp'>
+    <img  class="pix" src="{{ newzz.image.url }}" />
+	<h4> {{ newzz.pub_date_pretty }}</h4>
+	</div>
+	{% else %}
+	<h4> {{ newzz.pub_date_pretty }}</h4>
+	{% endif %}
+	<h4> Posted by {{ newzz.source.username }}</h4>
+    
     <p>{{ newzz.body }}</p>
 
 </body>

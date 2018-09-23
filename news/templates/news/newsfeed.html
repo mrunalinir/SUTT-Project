@@ -6,13 +6,35 @@
 <br/>
 <h1 align='center'> News Feed </h1>
 
+<style>
+.pix
+{
+	width: 10%;
+}
+
+.listd
+{
+	display: 'flex';
+}
+
+</style>
+
 <br/>
 <br/>
 {% for news in news.all %}
 
 <div onclick="window.location='{% url 'detail' news.id %}';" style="cursor: pointer;">
     <h1>{{ news.title }}</h1>
-    <p>{{ news.summary }}</p>
+    {% if news.image %}
+	<div class='listd'>
+    <img class='pix' src="{{ news.image.url }}"/>
+	{{ news.summary }}
+	</div>
+	
+	{% else %}
+	{{ news.summary }}
+    {% endif %}
+	<hr/>
 </div>
 
 <br/>
