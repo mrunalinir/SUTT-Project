@@ -16,22 +16,21 @@ def newsfeed(request):
 
 @login_required (login_url="/accounts/signup")
 def create(request):
-    if request.method == 'POST':
-        if request.POST['title'] and request.POST['body']:
-            if request.FILES['image']:
-	            news.image = request.FILES['image']
-            news = News()
-            news.title = request.POST['title']
-            news.body = request.POST['body']
-            
-            news.pub_date = timezone.datetime.now()
-            news.source = request.user
-            news.save()
-            return redirect('/news/' + str(news.id))
-        else:
-            return render(request, 'news/create.html',{'error':'All fields are required.'})
-    else:
-        return render(request, 'news/create.html')
+	if request.method == 'POST':
+		if request.POST['title'] and request.POST['body']:
+			news = News()
+			if request.FILES.get('image'):
+				news.image = request.FILES['image']
+			news.title = request.POST['title']
+			news.body = request.POST['body']
+			news.pub_date = timezone.datetime.now()
+			news.source = request.user
+			news.save()
+			return redirect('/news/' + str(news.id))
+		else:
+			return render(request, 'news/create.html',{'error':'All fields are required.'})
+	else:
+		return render(request, 'news/create.html')
 
 @login_required
 def detail(request, news_id):
